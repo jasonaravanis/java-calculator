@@ -25,6 +25,6 @@ tasks.test {
 
 tasks.named<Jar>("jar") {
     manifest {
-        attributes["Main-Class"] = "calculator.Calculator"
+        attributes["Main-Class"] = "application.Application"
     }
 }
