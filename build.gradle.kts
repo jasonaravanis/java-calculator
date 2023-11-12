@@ -4,7 +4,7 @@ plugins {
 }
 
 application {
-    mainClass = "calculator.Calculator"
+    mainClass = "application.Application"
 }
 
 group = "org.example"
@@ -27,4 +27,8 @@ tasks.named<Jar>("jar") {
     manifest {
         attributes["Main-Class"] = "application.Application"
     }
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
