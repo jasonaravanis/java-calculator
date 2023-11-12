@@ -6,10 +6,11 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 public final class UserInputRetriever {
+    private static final Scanner scanner = new Scanner(System.in);
     private UserInputRetriever() {}
 
     public static BigDecimal getBigDecimalFromUser() {
-        Scanner scanner = new Scanner(System.in);
+
         boolean inputIsValid = false;
         BigDecimal input = null;
         do {
@@ -30,7 +31,6 @@ public final class UserInputRetriever {
     }
 
     public static Operator getOperatorFromUser() {
-        Scanner scanner = new Scanner(System.in);
         boolean inputIsValid = false;
         Integer input = null;
         do {
