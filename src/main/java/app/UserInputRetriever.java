@@ -5,7 +5,6 @@ import calculator.Operator;
 import java.util.Scanner;
 
 public final class UserInputRetriever {
-    /* Stops program execution until user provides some String input via CLI, then returns it */
     private UserInputRetriever() {}
 
     public static Double getDoubleFromUser() {

@@ -5,15 +5,26 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
-    @Test
-    void twoPlusTwoShouldEqualFour() {
-        Calculator calculator = new Calculator();
-        assertEquals(4, calculator.add(2, 2));
-    }
+
 
     @Test
     void threePlusSevenEqualsTen() {
-        Calculator calculator = new Calculator();
-        assertEquals(10, calculator.add(3, 7));
+        assertEquals(10, Calculator.calculate(3.0, Operator.ADD,7.0));
+    }
+
+    @Test
+    void fiveMinusTwoEqualsThree() {
+
+        assertEquals(3, Calculator.calculate(5.0, Operator.SUBTRACT,2.0));
+    }
+
+    @Test
+    void threeMultipliedByTwoEqualsSix() {
+        assertEquals(6, Calculator.calculate(3.0, Operator.MULTIPLY,2.0));
+    }
+
+    @Test
+    void tenDividedByFourEqualsTwoPointFive() {
+        assertEquals(2.5, Calculator.calculate(10.0, Operator.DIVIDE,4.0));
     }
 }
