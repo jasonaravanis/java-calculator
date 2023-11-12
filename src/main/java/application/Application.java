@@ -3,6 +3,8 @@ package application;
 import calculator.Calculator;
 import calculator.Operator;
 
+import java.math.BigDecimal;
+
 public class Application {
     /*
     * The application has a calculator class which takes in input parameters and returns calculated values
@@ -13,11 +15,11 @@ public class Application {
     * */
 
     public static void main(String[] args) {
-        Double inputA = UserInputRetriever.getDoubleFromUser();
+        BigDecimal inputA = UserInputRetriever.getBigDecimalFromUser();
         Operator operator = UserInputRetriever.getOperatorFromUser();
-        Double inputB = UserInputRetriever.getDoubleFromUser();
+        BigDecimal inputB = UserInputRetriever.getBigDecimalFromUser();
 
-        Double result = Calculator.calculate(inputA, operator, inputB);
+        String result = Calculator.calculate(inputA, operator, inputB);
 
         System.out.println();
         System.out.println("Result: " + result);

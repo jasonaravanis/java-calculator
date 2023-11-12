@@ -1,39 +1,56 @@
 package calculator;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Calculator {
-    private static Double add (Double numberA, Double numberB) {
-        return numberA + numberB;
+
+    private static final MathContext mc = new MathContext(4);
+    private static BigDecimal add (BigDecimal numberA, BigDecimal numberB) {
+        return numberA.add(numberB, mc);
     }
 
-    private static Double subtract (Double numberA, Double numberB) {
-        return numberA - numberB;
+    private static BigDecimal subtract (BigDecimal numberA, BigDecimal numberB) {
+        return numberA.subtract(numberB, mc);
     }
 
-    private static Double multiply (Double numberA, Double numberB) {
-        return numberA * numberB;
+    private static BigDecimal multiply (BigDecimal numberA, BigDecimal numberB) {
+        return numberA.multiply(numberB, mc);
     }
 
-    private static Double divide (Double numberA, Double numberB) {
-        return numberA / numberB;
+    private static BigDecimal divide (BigDecimal numberA, BigDecimal numberB) {
+        return numberA.divide(numberB, mc);
     }
 
-    public static Double calculate(Double numberA, Operator operator, Double numberB) {
+    private static String formatResult(BigDecimal rawResult) {
+        DecimalFormat df = new DecimalFormat("#.####");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+        return df.format(rawResult);
+    }
+
+    public static String calculate(BigDecimal numberA, Operator operator, BigDecimal numberB) {
+
+        BigDecimal rawResult;
+
         switch (operator) {
             case ADD -> {
-                return add(numberA, numberB);
+                rawResult = add(numberA, numberB);
             }
             case SUBTRACT -> {
-                return subtract(numberA, numberB);
+                rawResult = subtract(numberA, numberB);
             }
             case MULTIPLY -> {
-                return multiply(numberA, numberB);
+                rawResult = multiply(numberA, numberB);
             }
             case DIVIDE -> {
-                return divide(numberA, numberB);
+                rawResult = divide(numberA, numberB);
             }
+            default -> throw new RuntimeException("No operator found");
         }
+        return formatResult(rawResult);
 
-        throw new RuntimeException("No operator found");
     }
 
 }

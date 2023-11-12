@@ -39,7 +39,7 @@ class UserInputRetrieverTest {
     void getDoubleFromUser() {
         String testString = "10\n";
         provideInput(testString);
-        UserInputRetriever.getDoubleFromUser();
+        UserInputRetriever.getBigDecimalFromUser();
         assertEquals("\nEnter a number: \nYou entered: 10.0\n", getOutput());
     }
 }

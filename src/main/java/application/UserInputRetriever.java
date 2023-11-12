@@ -2,21 +2,22 @@ package application;
 
 import calculator.Operator;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public final class UserInputRetriever {
     private UserInputRetriever() {}
 
-    public static Double getDoubleFromUser() {
+    public static BigDecimal getBigDecimalFromUser() {
         Scanner scanner = new Scanner(System.in);
         boolean inputIsValid = false;
-        Double input = null;
+        BigDecimal input = null;
         do {
             System.out.println();
             System.out.print("Enter a number: ");
             String inputStr = scanner.nextLine();
             try {
-                input = Double.parseDouble(inputStr);
+                input = BigDecimal.valueOf(Double.parseDouble(inputStr));
                 inputIsValid = true;
             } catch (NumberFormatException nfr) {
                 System.out.println("Input was not number, please enter a number!");
