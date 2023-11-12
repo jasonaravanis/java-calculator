@@ -1,4 +1,4 @@
-package app;
+package application;
 
 import calculator.Calculator;
 import calculator.Operator;
