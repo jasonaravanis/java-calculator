@@ -10,7 +10,6 @@ public final class UserInputRetriever {
     private UserInputRetriever() {}
 
     public static BigDecimal getBigDecimalFromUser() {
-
         boolean inputIsValid = false;
         BigDecimal input = null;
         do {

@@ -14,7 +14,6 @@ public class Application {
         while (true) {
             Operator operator = UserInputRetriever.getOperatorFromUser();
             BigDecimal inputB = UserInputRetriever.getBigDecimalFromUser();
-
             BigDecimal result = Calculator.calculate(inputA, operator, inputB);
             inputA = result;
 

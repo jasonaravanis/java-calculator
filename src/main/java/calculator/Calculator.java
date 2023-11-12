@@ -31,15 +31,12 @@ public class Calculator {
     }
 
     public static BigDecimal calculate(BigDecimal numberA, Operator operator, BigDecimal numberB) {
-
         return switch (operator) {
             case ADD -> add(numberA, numberB);
             case SUBTRACT -> subtract(numberA, numberB);
             case MULTIPLY -> multiply(numberA, numberB);
             case DIVIDE -> divide(numberA, numberB);
         };
-
-
     }
 
 }
