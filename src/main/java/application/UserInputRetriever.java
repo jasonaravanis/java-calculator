@@ -15,7 +15,7 @@ public final class UserInputRetriever {
         BigDecimal input = null;
         do {
             System.out.println();
-            System.out.print("Enter a number: ");
+            System.out.print("Enter a number (or press 'q' to exit): ");
             String inputStr = scanner.nextLine();
             try {
                 if (inputStr.equals("q")) {
@@ -28,8 +28,6 @@ public final class UserInputRetriever {
             }
         }
         while (!inputIsValid);
-        System.out.println();
-        System.out.println("You entered: " + input);
         return input;
     }
 
@@ -44,8 +42,7 @@ public final class UserInputRetriever {
             System.out.println("3. " + Operator.MULTIPLY);
             System.out.println("4. " + Operator.DIVIDE);
             System.out.println();
-            System.out.println("Or press 'q' to quit");
-            System.out.println("(press 1,2,3,4): ");
+            System.out.print("press 1,2,3,4 or 'q' to exit: ");
             String inputStr = scanner.nextLine();
             try {
                 if (inputStr.equals("q")) {

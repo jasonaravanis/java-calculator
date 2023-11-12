@@ -24,32 +24,21 @@ public class Calculator {
         return numberA.divide(numberB, mc);
     }
 
-    private static String formatResult(BigDecimal rawResult) {
+    public static String formatResult(BigDecimal rawResult) {
         DecimalFormat df = new DecimalFormat("#.####");
         df.setRoundingMode(RoundingMode.HALF_UP);
         return df.format(rawResult);
     }
 
-    public static String calculate(BigDecimal numberA, Operator operator, BigDecimal numberB) {
+    public static BigDecimal calculate(BigDecimal numberA, Operator operator, BigDecimal numberB) {
 
-        BigDecimal rawResult;
+        return switch (operator) {
+            case ADD -> add(numberA, numberB);
+            case SUBTRACT -> subtract(numberA, numberB);
+            case MULTIPLY -> multiply(numberA, numberB);
+            case DIVIDE -> divide(numberA, numberB);
+        };
 
-        switch (operator) {
-            case ADD -> {
-                rawResult = add(numberA, numberB);
-            }
-            case SUBTRACT -> {
-                rawResult = subtract(numberA, numberB);
-            }
-            case MULTIPLY -> {
-                rawResult = multiply(numberA, numberB);
-            }
-            case DIVIDE -> {
-                rawResult = divide(numberA, numberB);
-            }
-            default -> throw new RuntimeException("No operator found");
-        }
-        return formatResult(rawResult);
 
     }
 

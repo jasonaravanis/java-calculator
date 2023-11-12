@@ -9,13 +9,19 @@ public class Application {
 
     public static void main(String[] args) {
         BigDecimal inputA = UserInputRetriever.getBigDecimalFromUser();
-        Operator operator = UserInputRetriever.getOperatorFromUser();
-        BigDecimal inputB = UserInputRetriever.getBigDecimalFromUser();
 
-        String result = Calculator.calculate(inputA, operator, inputB);
+        //noinspection InfiniteLoopStatement
+        while (true) {
+            Operator operator = UserInputRetriever.getOperatorFromUser();
+            BigDecimal inputB = UserInputRetriever.getBigDecimalFromUser();
 
-        System.out.println();
-        System.out.println("Result: " + result);
+            BigDecimal result = Calculator.calculate(inputA, operator, inputB);
+            inputA = result;
+
+            System.out.println();
+            System.out.println("Result: " + Calculator.formatResult(result));
+        }
+
     }
 
 }
